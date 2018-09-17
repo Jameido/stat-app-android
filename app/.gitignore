@@ -61,9 +61,3 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
-.DS_Store
-library/.DS_Store
-.idea/misc.xml
-.idea/caches/*
-.idea/markdown-navigator.xml
-.idea/markdown-navigator/profiles_settings.xml
