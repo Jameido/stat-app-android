@@ -10,7 +10,7 @@ import android.content.Context
  *
  * The Room database that contains the schedule and history
  */
-@Database(entities = arrayOf(TimeRecord::class), version = 0)
+@Database(entities = arrayOf(TimeRecord::class, ScheduleDay::class), version = 0)
 abstract class StatAppDatabase : RoomDatabase() {
 
     companion object {
@@ -30,4 +30,6 @@ abstract class StatAppDatabase : RoomDatabase() {
     }
 
     abstract fun timeRecordDao(): TimeRecordDao
+
+    abstract fun scheduleDao(): ScheduleDao
 }
