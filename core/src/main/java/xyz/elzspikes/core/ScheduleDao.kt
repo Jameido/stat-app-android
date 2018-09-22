@@ -1,5 +1,6 @@
 package xyz.elzspikes.core
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,7 +16,7 @@ interface ScheduleDao {
     fun forceOnCreate(): List<String>
 
     @Query("SELECT * FROM schedule")
-    fun getAll(): List<ScheduleDay>
+    fun getAll(): LiveData<List<ScheduleDay>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg days: ScheduleDay)

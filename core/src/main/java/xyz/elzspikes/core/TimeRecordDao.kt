@@ -1,9 +1,7 @@
 package xyz.elzspikes.core
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 /**
  * Created by Jameido on 17/09/2018.
@@ -15,10 +13,19 @@ interface TimeRecordDao {
     fun forceOnCreate(): List<String>
 
     @Query("SELECT * FROM records")
-    fun getAll(): List<TimeRecord>
+    fun getAll(): LiveData<List<TimeRecord>>
+
+    @Query("SELECT * FROM records WHERE end == 0 ORDER BY start LIMIT 1")
+    fun getCurrent(): LiveData<TimeRecord>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg days: TimeRecord)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(vararg days: TimeRecord)
+
+    @Delete()
+    fun delete(vararg days: TimeRecord)
 
     @Query("DELETE FROM records")
     fun clear()

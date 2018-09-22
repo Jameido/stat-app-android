@@ -11,5 +11,5 @@ import androidx.room.PrimaryKey
 data class TimeRecord(@PrimaryKey(autoGenerate = true) var id: Long?,
                       @ColumnInfo(name = "start") var start: Long,
                       @ColumnInfo(name = "end") var end: Long) {
-    constructor() : this(null, 0, 0)
+    constructor() : this(null, System.currentTimeMillis(), 0)
 }
