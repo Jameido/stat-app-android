@@ -1,15 +1,15 @@
 package xyz.elzspikes.core
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 /**
  * Created by Jameido on 17/09/2018.
  */
 @Dao
-interface ScheduleDao{
+interface ScheduleDao {
 
     @Query("SELECT count(id) FROM schedule LIMIT 1")
     fun forceOnCreate(): List<String>
@@ -23,6 +23,6 @@ interface ScheduleDao{
     @Query("DELETE FROM schedule")
     fun clear()
 
-    @Query("DELETE FROM schedule WHERE day = :day")
-    fun deleteDay(day: Long)
+    @Query("DELETE FROM schedule WHERE id = :id")
+    fun deleteDay(id: Long)
 }

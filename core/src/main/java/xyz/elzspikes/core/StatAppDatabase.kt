@@ -1,9 +1,9 @@
 package xyz.elzspikes.core
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
 /**
  * Created by Jameido on 17/09/2018.

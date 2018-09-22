@@ -1,15 +1,15 @@
 package xyz.elzspikes.core
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 /**
  * Created by Jameido on 17/09/2018.
  */
 @Dao
-interface TimeRecordDao{
+interface TimeRecordDao {
 
     @Query("SELECT count(id) FROM records LIMIT 1")
     fun forceOnCreate(): List<String>
